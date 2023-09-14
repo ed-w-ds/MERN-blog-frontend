@@ -14,25 +14,18 @@ const ShowBlog = ({ updateBlog, deleteBlog, user }) => {
     }, [blog])
 
     const [likes, setLikes] = useState(blog ? blog.likes : 0)
-    console.log('likes', likes)
 
     const dispatch = useDispatch()
     const id = useParams().id
-    console.log('id', id)
 
     const blogs = useSelector(state => state.blogs)
-    console.log('blogs', blogs)
 
     const match = useMatch(`/blogs/${id}`)
-    console.log('match', match)
     blog = match ? blogs.find(blog => blog.id === id) : null
-    console.log('blog', blog)
 
     const users = useSelector(state => state.users)
-    console.log('users', users)
 
     const findUser = users?.find(u => u.name === user.name)
-    console.log('findUser', findUser)
 
     const handleLike = () => {
         if (blog?.usersWhoLiked.length > 0 && findUser.id === blog.usersWhoLiked.find(id => id === findUser.id)) {

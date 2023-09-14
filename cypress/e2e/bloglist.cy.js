@@ -19,7 +19,7 @@ describe('Blog app', function() {
             username: 'mluukkai',
             password: 'salainen'
         }
-        cy.request('POST', `${Cypress.env('BACKEND')}/users`, user)
+        cy.request('POST', `${Cypress.env('BACKEND')}/api/users`, user)
 
         cy.visit('')
     })
