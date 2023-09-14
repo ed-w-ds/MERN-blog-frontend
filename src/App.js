@@ -46,17 +46,10 @@ const App = () => {
 
   const user = useSelector(state => state.user)
 
-  // const location = useLocation()
-
-  // useEffect(() => {
-  //   dispatch(setNotificationWithTimeout('', 0))
-  // }, [location])
-
   // get all users
   useEffect(() => {
     const getTheUsers = async () => {
       const users = await userService.getAllUsers()
-      console.log('users in app', users)
       dispatch(getUsers(users))
     }
     getTheUsers()
@@ -73,7 +66,6 @@ const App = () => {
     getBlogs()
   }, [user, reload])
   const blogs = useSelector(state => state.blogs)
-  console.log('blogs in app', blogs)
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedNoteappUser')
@@ -141,27 +133,18 @@ const App = () => {
       blogs.map(blog => blog.id !== id ? blog : updatedBlog)
       reload ? setReload(false) : setReload(true)
     } catch (exception) {
-      console.log('Error updating blog')
-      console.log('exception', exception)
-
       dispatch(setNotificationWithTimeout('Error updating blog', 5))
     }
   }
 
   // delete blog
   const deleteBlog = async (id) => {
-    console.log('deleting blog', id)
-
     try {
       await blogService.deleteBlog(id)
 
-      // setBlogs(blogs.filter(blog => blog.id !== id))
       blogs.filter(blog => blog.id !== id)
       reload ? setReload(false) : setReload(true)
     } catch (exception) {
-      console.log('Error deleting blog')
-      console.log('exception', exception)
-
       dispatch(setNotificationWithTimeout('Error deleting blog', 5))
     }
   }

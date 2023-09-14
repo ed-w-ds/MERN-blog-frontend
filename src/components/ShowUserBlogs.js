@@ -8,7 +8,6 @@ const ShowUserBlogs = () => {
         return <p>loading...</p>
     }
     const user = users.find(user => user.id === id)
-    console.log('user in showuserblogs', user)
 
     if (!user) {
         return <p>error - user cannot be found</p>

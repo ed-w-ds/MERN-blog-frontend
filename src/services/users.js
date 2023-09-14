@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/users' // eslint-disable-line no-undef
+const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/users'
 
 const getAllUsers = async () => {
     const response = await axios.get(baseUrl)

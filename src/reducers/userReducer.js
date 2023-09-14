@@ -28,7 +28,6 @@ export const { setUser, removeUser } = userSlice.actions
 export const setUserWithTimeout = (user) => {
     return async dispatch => {
         dispatch(setUser(user))
-        console.log('user in setUserWithTimeout', user)
         setTimeout(() => {
             dispatch(removeUser())
             window.localStorage.removeItem('loggedNoteappUser')

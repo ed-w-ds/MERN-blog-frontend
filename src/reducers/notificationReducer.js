@@ -6,7 +6,6 @@ const notificationSlice = createSlice({
     reducers: {
         // action creators are generated for each case reducer function
         setNotification(state, action) {
-            console.log('action', action)
             return action.payload
         },
         removeNotification() {

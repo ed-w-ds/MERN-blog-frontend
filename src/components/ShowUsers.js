@@ -5,7 +5,6 @@ import { Table, TableCell, TableContainer, TableHead, TableRow, Paper } from '@m
 
 const ShowUsers = () => {
     const users = useSelector(state => state.users)
-    console.log('users in showusers', users)
 
     return (
         users ? 

@@ -1,7 +1,7 @@
 /*eslint linebreak-style: ["error", "unix"]*/
 /*eslint indent: ["error", 2]*/
 import axios from 'axios'
-const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/blogs' // eslint-disable-line no-undef
+const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/blogs'
 
 let token = null
 

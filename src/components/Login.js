@@ -18,8 +18,6 @@ const LoginForm = () => {
     const handleLogin = async (event) => {
         event.preventDefault()
 
-        console.log('logging in with', username, password)
-
         try {
             const user = await loginService.login({
                 username, password,
@@ -33,7 +31,6 @@ const LoginForm = () => {
             setPassword('')
             redirect('/')
         } catch (exception) {
-            console.log('Wrong credentials')
             dispatch(setNotificationWithTimeout('Wrong credentials', 5))
         }
     }
