@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+import { setUsers } from './usersReducer'
+
+import getAllUsers from '../services/users'
 import signUp from '../services/signUp'
 
 const userSlice = createSlice({
@@ -35,6 +39,7 @@ export const setUserWithTimeout = (user) => {
 
 export const signUpUser = async credentials => {
     signUp(credentials)
+    setUsers(await getAllUsers())
 }
 
 export default userSlice.reducer

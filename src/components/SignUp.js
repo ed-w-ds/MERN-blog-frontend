@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux'
 
 // import { signUpUser } from '../reducers/userReducer'
 import { setNotificationWithTimeout } from '../reducers/notificationReducer'
+import { getUsers } from '../reducers/usersReducer'
 
 import signUpService from '../services/signUp'
+import userService from '../services/users'
 // import blogService from '../services/blogs'
 
 import { redirect } from 'react-router-dom'
@@ -26,12 +28,17 @@ const SignUp = () => {
                 username, name, password,
             })
 
+            const users = await userService.getAllUsers()
+            console.log('users in app', users)
+            dispatch(getUsers(users))
+
             // window.localStorage.setItem('loggedNoteappUser', JSON.stringify(user))
 
             // blogService.setToken(user.token)
             // dispatch(setUserWithTimeout(user))
             // dispatch(signUpUser(user))
             setUsername('')
+            setName('')
             setPassword('')
             redirect('/')
         } catch (exception) {
