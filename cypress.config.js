@@ -11,6 +11,6 @@ module.exports = defineConfig({
   // other config
   env: {
     // set common environment variables here
-    BACKEND: 'http://localhost:3003/api'
+    BACKEND: 'http://localhost:3003'
   },
 });

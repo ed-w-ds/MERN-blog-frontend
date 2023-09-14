@@ -119,7 +119,7 @@ const ShowBlog = ({ updateBlog, deleteBlog, user }) => {
     return (
         <div style={blogStyle} className='blog'>
             <p className='titleAuthor'><b>Title:</b> {blog.title} || <b>Author:</b> {blog.author}</p>
-            <p className='likes'>Likes: {blog.likes} <button onClick={ handleLike }>like</button></p>
+            <p className='likes'>Likes: {blog.likes} <button onClick={ handleLike } id='like-btn'>like</button></p>
             {blog.url? <p>Url: {blog.url}</p> : null}
             {(blog.user?.name) ? <p>{blog.user.name}</p> : null}
             {user.name === blog.user?.name ? <button onClick={ handleDelete } >remove</button> : null}

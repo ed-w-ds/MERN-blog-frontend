@@ -6,7 +6,6 @@ const Notification = () => {
     const notification = useSelector(state => state.notification)
     const notificationText = notification.notification
     const notifType = notification.notifType
-    console.log('notification', notification)
 
     const style = {
         border: 'solid',
@@ -23,7 +22,7 @@ const Notification = () => {
     }
 
     return (
-        <div style={style}>
+        <div style={style} id='notification'>
             { notifType==='success'
                 ?
                 <Alert severity="success">

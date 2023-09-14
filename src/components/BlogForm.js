@@ -68,5 +68,3 @@ const BlogForm = ({ user }) => {
 }
 
 export default BlogForm
-
-
