@@ -1,0 +1,37 @@
+.error {
+    color: red;
+    background: lightgrey;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.success {
+    color: green;
+    background: lightgrey;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.navStyle {
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.navStyle > *:not(button) {
+    /* display: inline-block; */
+    padding: 5px;
+}
+
+.navStyle Link {
+    padding: 5px;
+}
+
+.navStyle b {
+    color: black;
+}
