@@ -32,11 +32,11 @@ describe('Blog app', function() {
     })
     describe('When logged in', function() {
         beforeEach(function() {
-            cy.request('POST', `${Cypress.env('BACKEND')}/api/testing/reset`)
-            cy.visit('')
+            // cy.request('POST', `${Cypress.env('BACKEND')}/api/testing/reset`)
 
-            cy.signUpBackend({ username: 'mluukkai', name: 'Matti Luukkainen', password: 'salainen' })
+            // cy.signUpBackend({ username: 'mluukkai', name: 'Matti Luukkainen', password: 'salainen' })
             cy.loginBackend({ username: 'mluukkai', password: 'salainen' })
+            cy.visit('')
         })
 
         it('A blog can be created and exists', function() {
@@ -53,8 +53,8 @@ describe('Blog app', function() {
 
         describe('and a blog exists', function() {
             beforeEach(function() {
-                cy.loginBackend({ username: 'mluukkai', password: 'salainen' })
                 cy.createBlog({ title: 'a blog created by cypress', author: 'cypress', url: 'www.cypress.com' })
+                cy.visit('')
             })
 
             it('the blog can be liked', function() {
@@ -69,6 +69,15 @@ describe('Blog app', function() {
                 cy.contains('remove').click()
                 cy.get('html').should('not.contain', 'a blog created by cypress')
             })
+            // it('the blog cannot be deleted by another user', function() {
+            //     cy.contains('logout').click()
+            //     cy.signUpBackend({ username: 'cypress', name: 'Cypress', password: 'salainen' })
+            //     cy.loginBackend({ username: 'cypress', password: 'salainen' })
+            //     cy.visit('')
+            //     cy.get('html').should('contain', 'a blog created by cypress ||')
+            //     cy.contains('a blog created by cypress ||').click()
+            //     cy.get('html').should('not.contain', 'remove')
+            // })
         })
 
         describe('and multiple blogs exist', function() {
