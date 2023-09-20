@@ -26,7 +26,7 @@ import userService from './services/users'
 
 // ui
 import './index.css'
-import { Container, Grid, InputLabel, MenuItem, Box, FormControl, Select } from '@mui/material'
+import { Container, Grid, InputLabel, MenuItem, Box, FormControl, Select, Typography, Paper } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
@@ -158,7 +158,7 @@ const App = () => {
 
   const SelectBlogs = () => {
     return (
-      <Box   sx={{
+      <Box sx={{
         minWidth: 120,
         padding: '10px',
         alignContent: 'center',
@@ -198,6 +198,16 @@ const App = () => {
             <>
               <Notification />
               <Box>
+                <Paper sx={{ textAlign: 'center', m: '10px', p: '10px', backgroundColor: 'primary' }}>
+                  <Typography variant='h4' style={{ textAlign: 'center', marginRight: '20px' }}>
+                    <b>Disclaimer:</b>
+                  </Typography>
+                  <Typography variant='p' style={{ textAlign: 'center', marginRight: '20px' }}>
+                    The Backend is Hosted on Render.com. (free tier).
+                    Render spins down a Free web service that goes 15 minutes without receiving inbound traffic. Render spins the service back up whenever it next receives a request to process.
+                    Spinning up a service takes a few seconds, which causes a noticeable delay for incoming requests until the service is back up and running. For example, a browser page load will hang momentarily.
+                  </Typography>
+                </Paper>
                 <Login />
                 <SignUp />
               </Box>
