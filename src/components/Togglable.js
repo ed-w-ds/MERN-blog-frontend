@@ -1,4 +1,5 @@
 import { useState, forwardRef, useImperativeHandle } from 'react'
+import { Button } from '@mui/material'
 
 const Togglable = forwardRef((props, refs) => {
     const [visible, setVisible] = useState(false)
@@ -17,17 +18,29 @@ const Togglable = forwardRef((props, refs) => {
         }
     })
 
+    const buttonAlign = {
+        textAlign: 'right',
+        contentAlign: 'center',
+    }
+
+    const buttonStyle = {
+        backgroundColor: props.buttonColor,
+        color: 'white',
+    }
+
     return (
         <div>
-            <div style={hideWhenVisible}>
-                <button onClick={toggleVisibility}>{props.buttonLabel}</button>
+            <div style={{ ...hideWhenVisible, ...buttonAlign }}>
+                <Button onClick={toggleVisibility} id='addBlogBtn' style={buttonStyle}>{props.buttonLabel}</Button>
             </div>
             <div style={showWhenVisible}>
                 {/* props.children is used for refrencing the child components of a component
                 e.g the usage for togglable is placing another component inside the toggle component
                 or rather passing it as a child of Togglable component */}
                 {props.children}
-                <button onClick={toggleVisibility}>hide</button>
+                <div id='hideBtnDiv'>
+                    <Button onClick={toggleVisibility} id='hideBtn' style={ buttonStyle }>hide</Button>
+                </div>
             </div>
         </div>
     )
@@ -36,33 +49,3 @@ const Togglable = forwardRef((props, refs) => {
 Togglable.displayName = 'Togglable'
 
 export default Togglable
-
-// import { useState } from 'react'
-
-// const Togglable = ( (props) => {
-//     const [visible, setVisible] = useState(false)
-
-//     const hideWhenVisible = { display: visible ? 'none' : '' }
-//     const showWhenVisible = { display: visible ? '' : 'none' }
-
-//     const toggleVisibility = () => {
-//         setVisible(!visible)
-//     }
-
-//     return (
-//         <div>
-//             <div style={hideWhenVisible}>
-//                 <button onClick={toggleVisibility}>{props.buttonLabel}</button>
-//             </div>
-//             <div style={showWhenVisible}>
-//                 {/* props.children is used for refrencing the child components of a component
-//                 e.g the usage for togglable is placing another component inside the toggle component
-//                 or rather passing it as a child of Togglable component */}
-//                 {props.children}
-//                 <button onClick={toggleVisibility}>cancel</button>
-//             </div>
-//         </div>
-//     )
-// })
-
-// export default Togglable

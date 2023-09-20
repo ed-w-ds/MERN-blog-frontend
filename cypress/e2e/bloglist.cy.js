@@ -58,14 +58,14 @@ describe('Blog app', function() {
             })
 
             it('the blog can be liked', function() {
-                cy.contains('a blog created by cypress ||').click()
+                cy.contains('a blog created by cypress').click()
                 cy.contains('Likes: 0')
                 cy.contains('like').click()
                 cy.contains('Likes: 1')
             })
 
             it('the blog can be deleted by the user that created it', function() {
-                cy.contains('a blog created by cypress ||').click()
+                cy.contains('a blog created by cypress').click()
                 cy.contains('remove').click()
                 cy.get('html').should('not.contain', 'a blog created by cypress')
             })

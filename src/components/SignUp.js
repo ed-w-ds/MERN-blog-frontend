@@ -8,6 +8,7 @@ import signUpService from '../services/signUp'
 import userService from '../services/users'
 
 import { redirect } from 'react-router-dom'
+import { Box, Paper, TextField, Button, Typography } from '@mui/material'
 
 
 const SignUp = () => {
@@ -37,43 +38,66 @@ const SignUp = () => {
     }
 
     return (
-        <form onSubmit={handleSignUp}>
-            <div>
-                username
-                <input
-                    id="username-input-signup"
-                    placeholder="username"
-                    type="text"
-                    value={username}
-                    name="Username"
-                    onChange={({ target }) => setUsername(target.value)}
-                />
-            </div>
-            <div>
-                name
-                <input
-                    id="name-input-signup"
-                    placeholder="name"
-                    type="text"
-                    value={name}
-                    name="Name"
-                    onChange={({ target }) => setName(target.value)}
-                />
-            </div>
-            <div>
-                password
-                <input
-                    id="password-input-signup"
-                    placeholder="password"
-                    type="password"
-                    value={password}
-                    name="Password"
-                    onChange={({ target }) => setPassword(target.value)}
-                    autoComplete = "on"
-                />
-            </div>
-            <button id="signUp-button" type="submit">sign up</button>
-        </form>
+        <Paper elevation={5} sx={{
+            m: '10px',
+            p: '10px',
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            width: '50%',
+            margin: 'auto',
+            mt: '20px',
+            minWidth: '300px',
+        }}>
+            <Box
+                component='form'
+                onSubmit={handleSignUp}
+            >
+                <Box>
+                    <Typography variant='h4' style={{ textAlign: 'center', marginRight: '20px' }}>
+                        <b>Sign up</b>
+                    </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center', my: '10px' }}>
+                    <TextField
+                        id='username-input-signup'
+                        label='username'
+                        placeholder='username'
+                        type='text'
+                        value={username}
+                        name='Username'
+                        onChange={({ target }) => setUsername(target.value)}
+                    />
+                </Box>
+                <Box sx={{ textAlign: 'center', my: '10px' }}>
+                    <TextField
+                        id='name-input-signup'
+                        label='name'
+                        placeholder='name'
+                        type='text'
+                        value={name}
+                        name='Name'
+                        onChange={({ target }) => setName(target.value)}
+                    />
+                </Box>
+                <Box sx={{ textAlign: 'center', my: '10px' }}>
+                    <TextField
+                        id='password-input-signup'
+                        label='password'
+                        placeholder='password'
+                        type='password'
+                        value={password}
+                        name='Password'
+                        onChange={({ target }) => setPassword(target.value)}
+                        autoComplete = 'on'
+                    />
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                    <Button id='signUp-button' type='submit' variant='contained'>sign up</Button>
+                </Box>
+            </Box>
+        </Paper>
     )
 }
 

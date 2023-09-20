@@ -35,3 +35,57 @@
 .navStyle b {
     color: black;
 }
+
+
+body {
+    /* for chrome */
+    min-height: 100vh;
+    background: #3a1caf; /* Fallback color */
+    background: -webkit-linear-gradient(270deg, #d254e3 0%, #3a6caf 100%); /* Safari and Chrome */
+    background: -moz-linear-gradient(270deg, #d254e3 0%, #3a6caf 100%); /* Firefox */
+    background: linear-gradient(270deg, #d254e3 0%, #3a6caf 100%); /* Hexadecimal */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+#logoutBtn:hover {
+    background-color: #aa0000;
+    color: white;
+    transition: 0.5s;
+}
+
+#addBlogBtn {
+    background-color: #3a1caf;
+    color: white;
+    transition: 0.5s;
+    margin-right: 10px;
+}
+
+#addBlogBtn:hover {
+    background-color: 'darkgreen';
+    color: white;
+}
+
+#hideBtn {
+    background-color: #3a1caf;
+    color: white;
+    transition: 0.5s;
+}
+
+#hideBtnDiv {
+    text-align: center;
+    margin-right: 25px;
+    margin-top: 10px;
+}
+
+#titleAuthor {
+    margin-top: 10px;
+}
