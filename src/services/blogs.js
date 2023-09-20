@@ -1,8 +1,8 @@
 /*eslint linebreak-style: ["error", "unix"]*/
 /*eslint indent: ["error", 2]*/
 import axios from 'axios'
-// const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/blogs'
-const baseUrl = 'http://localhost:3003/api/blogs' // for testing
+const baseUrl = 'https://mern-blog-backend-xabi.onrender.com'+'/api/blogs'
+// const baseUrl = 'http://localhost:3003/api/blogs' // for testing
 
 let token = null
 
