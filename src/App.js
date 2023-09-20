@@ -46,7 +46,6 @@ const App = () => {
   const blogFormRef = useRef()
 
   const user = useSelector(state => state.user)
-  console.log('user', user)
 
   // get all users
   useEffect(() => {
@@ -68,7 +67,6 @@ const App = () => {
     getBlogs()
   }, [user, reload])
   const blogs = useSelector(state => state.blogs)
-  console.log('blogs', blogs)
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedNoteappUser')
