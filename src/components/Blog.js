@@ -11,7 +11,7 @@ const Blog = ({ blog }) => {
   }
 
   return (
-    <Grid item xs={12} sm={6} md={6} lg={6} >
+    <Grid item xs={12} sm={6} md={6} lg={6} id='titleAuthor' className='blog'>
       <Card>
         <CardContent>
             <Typography variant="h6">

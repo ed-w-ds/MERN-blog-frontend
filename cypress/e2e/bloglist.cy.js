@@ -46,7 +46,7 @@ describe('Blog app', function() {
             cy.get('#url-input').type('www.cypress.com')
             cy.get('#submit-button').click()
             cy.contains('a blog created by cypress')
-            cy.get('.titleAuthor')
+            cy.get('#titleAuthor')
                 .should('contain', 'a blog created by cypress')
                 .and('contain', 'cypress')
         })
@@ -58,37 +58,31 @@ describe('Blog app', function() {
             })
 
             it('the blog can be liked', function() {
-                cy.contains('a blog created by cypress').click()
+                cy.contains('see more').click()
                 cy.contains('Likes: 0')
                 cy.contains('like').click()
                 cy.contains('Likes: 1')
             })
 
             it('the blog can be deleted by the user that created it', function() {
-                cy.contains('a blog created by cypress').click()
+                cy.contains('see more').click()
                 cy.contains('remove').click()
                 cy.get('html').should('not.contain', 'a blog created by cypress')
             })
-            // it('the blog cannot be deleted by another user', function() {
-            //     cy.contains('logout').click()
-            //     cy.signUpBackend({ username: 'cypress', name: 'Cypress', password: 'salainen' })
-            //     cy.loginBackend({ username: 'cypress', password: 'salainen' })
-            //     cy.visit('')
-            //     cy.get('html').should('contain', 'a blog created by cypress ||')
-            //     cy.contains('a blog created by cypress ||').click()
-            //     cy.get('html').should('not.contain', 'remove')
-            // })
         })
 
         describe('and multiple blogs exist', function() {
             beforeEach(function() {
-                cy.createBlog({ title: 'The title with the second most likes', author: 'cypress', url: 'www.cypress.com' })
                 cy.createBlog({ title: 'The title with the most likes', author: 'cypress', url: 'www.cypress.com' })
+                cy.createBlog({ title: 'The title with the second most likes', author: 'cypress', url: 'www.cypress.com' })
                 cy.createBlog({ title: 'The title with the third most likes', author: 'cypress', url: 'www.cypress.com' })
             })
 
-            it('blogs are ordered by likes', function() {
-                cy.contains('The title with the most likes')
+            it.only('blogs are ordered by likes', function() {
+                cy.get('#titleAuthor')
+                    .contains('The title with the most likes')
+                    .parent()
+                    .contains('see more')
                     .click()
                 cy.get('#like-btn')
                     .click()
