@@ -91,7 +91,7 @@ const App = () => {
   const showBlogs = () => (
     <Grid container spacing={2} style={{ flexWrap: 'wrap', marginBottom: '20px' }}>
       <div style={{ width: '100%', textAlign: 'center' }}>
-        <h1>blogs (sorted by likes)</h1>
+        <h1>blogs-list (sorted by likes)</h1>
         <SelectBlogs/>
       </div>
       {blogs.map(blog =>
@@ -109,7 +109,7 @@ const App = () => {
   const showBlogsByTitle = () => (
     <Grid container spacing={2} style={{ flexWrap: 'wrap' }}>
       <div style={{ width: '100%', textAlign: 'center' }}>
-        <h1>blogs (sorted by title)</h1>
+        <h1>blogs-list (sorted by title)</h1>
         <SelectBlogs />
       </div>
       {_.sortBy(blogs, [blog => blog.title.toLowerCase()]).map(blog =>
