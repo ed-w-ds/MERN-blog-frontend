@@ -41,15 +41,4 @@ export const signUpUser = async credentials => {
     setUsers(await getAllUsers())
 }
 
-// remove blog from user.blogs once deleted
-export const removeBlogFromUser = (id, user) => {
-    return async dispatch => {
-        const updatedUser = {
-            ...user,
-            blogs: user.blogs.filter(blog => blog.id !== id)
-        }
-        dispatch(setUser(updatedUser))
-    }
-}
-
 export default userSlice.reducer
